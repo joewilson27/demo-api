@@ -12,6 +12,8 @@ import jakarta.persistence.Table;
 @Table(name = "tbl_product") // ini akan menjadi nama table di sisi mysql
 public class Product implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     @Id // jadikan primary key pada table mysql
     @GeneratedValue(strategy=GenerationType.IDENTITY) // jadikan auto-increment pada sisi mysql
     private Long id;
