@@ -2,6 +2,7 @@ package com.domain.models.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,8 +19,10 @@ public class Product implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY) // jadikan auto-increment pada sisi mysql
     private Long id;
 
+    @Column(name="product_name", length=100) // ini nanti di table akan membuat nama column product_name dan length 100 yang di generate JPA ke mysql nya
     private String name;
 
+    @Column(name="product_description", length=500) // ini juga akan di generate JPA. intinya lain type database yg di gunakan, nanti tipe pada database akan menyesuaikan
     private String description;
 
     private double price;
