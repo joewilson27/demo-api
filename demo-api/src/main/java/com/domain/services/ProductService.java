@@ -1,6 +1,7 @@
 package com.domain.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,12 @@ public class ProductService {
 
     // Get detail of data
     public Product findOne(Long id) {
-      return productRepo.findById(id).get();
+      // handling if id not found
+      Optional<Product> product = productRepo.findById(id);
+      if(!product.isPresent()) { // if id is not found, then return null
+        return null;
+      }
+      return product.get();
     }
 
     // Get list of data
